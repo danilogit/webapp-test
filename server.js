@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
 
+const port = process.env.PORT || 3000
+
 var app = express()
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 app.set('view engine', 'hbs')
@@ -18,6 +20,6 @@ app.get('/', (req, res) => {
   })
 })
 
-app.listen(80, () => {
-  console.log('Server is up')
+app.listen(port, () => {
+  console.log('Server is up on port ' + port)
 })
