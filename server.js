@@ -10,13 +10,14 @@ app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use((req, resp, next) => {
   var date = new Date().toString()
-  console.log(`${date}: ${req.ip} ${req.method} ${req.url} ${resp.statuCode} ${req.headers['user-agent']}`)
+  console.log(`${date}: ${req.ip} ${req.method} ${req.url} ${req.headers['user-agent']}`)
   next()
 })
 
 app.get('/', (req, res) => {
   res.render('about.hbs', {
-    name: 'Danilo'
+    name: 'Danilo',
+    date: new Date().toString()
   })
 })
 
